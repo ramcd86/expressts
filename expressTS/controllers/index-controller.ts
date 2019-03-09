@@ -1,24 +1,22 @@
-import express = require('express');
-
-const router = express.Router();
+import { Request, Response } from "express";
 
 class IndexController {
 
-    public dude: string;
+  public state: any;
 
-    constructor(private expressCore: express.Application = express()) {
-        this.dude = "dude";
-    }
+  constructor() {
+    this.init();
+    this.state = {
+      initialState: 'Object initialized.'
+    };
+  }
 
-    init() {
-        
-        this.expressCore.get('/', (req, res, next) => {
-            res.render('index', this.dude);
-        })
-    }
+   public init() {
+     console.log('Init initialized.');
+  }
 
 }
 
-new IndexController().init;
-
-module.exports = router;
+export let index = (req: Request, res: Response) => {
+  res.render("index", new IndexController());
+};
