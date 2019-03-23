@@ -4,9 +4,7 @@ import path = require('path');
 import cookieParser = require('cookie-parser');
 import logger = require('morgan');
 
-
 import * as IndexController from './controllers/index-controller';
-
 
 class BootstrapComponent {
 

@@ -4,6 +4,7 @@ class IndexController {
 
   public state: any;
 
+  
   constructor() {
     this.init();
     this.state = {
