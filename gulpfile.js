@@ -26,7 +26,21 @@ gulp.task('transpile-scss', function() {
 gulp.task('transpile-server-typescript', function() {
     return gulp.src('./src/server/**/*.ts')
         .pipe(tsc({
-            typescript: require('typescript')
+            typescript: require('typescript'),
+            target: 'ES6',
+            module: 'commonjs',
+            noImplicitAny: true,
+            moduleResolution: 'node',
+            sourceMap: true,
+            baseUrl: '.',
+            experimentalDecorators: true,
+            emitDecoratorMetadata: true,
+            paths: {
+                '*': [
+                    'node_modules/*',
+                    'src/server/types/*'
+                ]
+            }
         }))
         .pipe(gulp.dest('./public_html/server'));
 });

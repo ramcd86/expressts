@@ -1,17 +1,16 @@
 "use strict";
-exports.__esModule = true;
-var IndexController = /** @class */ (function () {
-    function IndexController() {
+Object.defineProperty(exports, "__esModule", { value: true });
+class IndexController {
+    constructor() {
         this.init();
         this.state = {
             initialState: 'Object initialized.'
         };
     }
-    IndexController.prototype.init = function () {
+    init() {
         console.log('Init initialized.');
-    };
-    return IndexController;
-}());
-exports.index = function (req, res) {
+    }
+}
+exports.index = (req, res) => {
     res.render("index", new IndexController());
 };
